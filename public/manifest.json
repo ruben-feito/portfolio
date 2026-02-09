@@ -1,19 +1,25 @@
 {
-  "name": "Portfolio - Desarrollador Full-Stack Senior",
-  "short_name": "Portfolio Dev",
-  "description": "Portfolio de desarrollador Full-Stack Senior especializado en Laravel y marketplaces",
+  "name": "Rubén Feito - Desarrollador Full-Stack Senior",
+  "short_name": "Rubén Feito",
+  "description": "Portfolio de Rubén Feito, desarrollador Full-Stack Senior especializado en Laravel, PHP y integraciones de marketplaces",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f172a",
-  "theme_color": "#7c3aed",
+  "theme_color": "#14b8a6",
   "orientation": "portrait-primary",
-  "categories": ["portfolio", "developer", "technology"],
-  "lang": "es",
+  "categories": ["portfolio", "developer", "technology", "business"],
+  "lang": "es-ES",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/favicon.ico",
       "sizes": "48x48",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }

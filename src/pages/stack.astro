@@ -6,6 +6,7 @@ import ToolSection from "../components/ToolSection.astro";
 import SkillItem from "../components/SkillItem.astro";
 import DBCard from "../components/DBCard.astro";
 import CtaSection from "../components/CtaSection.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
 import {
   backendSkills,
   frontendSkills,
@@ -14,12 +15,20 @@ import {
   toolSections,
   collaborationTools,
 } from "../data/stack";
+
+const breadcrumbItems = [
+  { name: "Inicio", url: "https://rubenfeito.dev/" },
+  { name: "Stack Tecnológico", url: "https://rubenfeito.dev/stack" }
+];
 ---
 
 <Layout
   title="Stack Tecnológico - Laravel, PHP, APIs, Docker | Desarrollador Senior"
   description="Stack técnico completo: Laravel, PHP avanzado, APIs RESTful, bases de datos MySQL/PostgreSQL, Redis, Docker. Tecnologías que domino para soluciones robustas."
 >
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
   <Container>
     <PageHeader
       title="Stack Técnico"

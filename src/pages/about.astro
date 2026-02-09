@@ -5,15 +5,24 @@ import PageHeader from "../components/PageHeader.astro";
 import TimelineItem from "../components/TimelineItem.astro";
 import EducationCard from "../components/EducationCard.astro";
 import SectorCard from "../components/SectorCard.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
 import { experiences } from "../data/experiences";
 import { educationList } from "../data/education";
 import { sectors } from "../data/sectors";
+
+const breadcrumbItems = [
+  { name: "Inicio", url: "https://rubenfeito.dev/" },
+  { name: "Sobre Mí", url: "https://rubenfeito.dev/about" }
+];
 ---
 
 <Layout
   title="Sobre Mí - Desarrollador Full-Stack Senior | Experiencia Laravel"
   description="Conoce mi trayectoria como desarrollador full-stack senior. Especializado en Laravel, integraciones de marketplaces y arquitecturas escalables con más de 5 años de experiencia."
 >
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
   <!-- Structured Data for About Page -->
   <script type="application/ld+json">
     {

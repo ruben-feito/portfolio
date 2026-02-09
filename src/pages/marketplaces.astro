@@ -5,13 +5,22 @@ import PageHeader from "../components/PageHeader.astro";
 import MarketplaceCard from "../components/MarketplaceCard.astro";
 import CtaSection from "../components/CtaSection.astro";
 import SectionCard from "../components/SectionCard.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
 import { marketplaces } from "../data/marketplaces";
+
+const breadcrumbItems = [
+  { name: "Inicio", url: "https://rubenfeito.dev/" },
+  { name: "Integraciones Marketplace", url: "https://rubenfeito.dev/marketplaces" }
+];
 ---
 
 <Layout
   title="Integraciones Marketplace - Amazon, eBay, Zalando | Servicios Técnicos"
   description="Especialista en integraciones de marketplaces europeos. Sincronización automática de catálogos, stock y precios. Servicios para e-commerce y plataformas B2B."
 >
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
   <!-- Structured Data for Services -->
   <script type="application/ld+json">
     {
