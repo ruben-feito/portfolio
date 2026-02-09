@@ -18,21 +18,16 @@ export default defineConfig({
           es: 'es-ES',
         },
       },
-      customPages: [
-        'https://rubenfeito.dev/',
-        'https://rubenfeito.dev/about',
-        'https://rubenfeito.dev/projects',
-        'https://rubenfeito.dev/stack',
-        'https://rubenfeito.dev/marketplaces',
-      ],
       serialize(item) {
         // Higher priority for homepage and projects
-        if (item.url === 'https://rubenfeito.dev/') {
+        if (item.url === 'https://rubenfeito.dev/' || item.url === 'https://rubenfeito.dev') {
           item.priority = 1.0;
-        } else if (item.url === 'https://rubenfeito.dev/projects/') {
+        } else if (item.url === 'https://rubenfeito.dev/projects/' || item.url === 'https://rubenfeito.dev/projects') {
           item.priority = 0.9;
         } else if (item.url === 'https://rubenfeito.dev/about/' || 
-                   item.url === 'https://rubenfeito.dev/marketplaces/') {
+                   item.url === 'https://rubenfeito.dev/about' ||
+                   item.url === 'https://rubenfeito.dev/marketplaces/' ||
+                   item.url === 'https://rubenfeito.dev/marketplaces') {
           item.priority = 0.8;
         }
         return item;
