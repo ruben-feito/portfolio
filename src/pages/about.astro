@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import EducationCard from "../components/EducationCard.astro";
+import SectorCard from "../components/SectorCard.astro";
+import { experiences } from "../data/experiences";
+import { educationList } from "../data/education";
+import { sectors } from "../data/sectors";
+---
+
+<Layout
+  title="Sobre Mí - Desarrollador Full-Stack Senior | Experiencia Laravel"
+  description="Conoce mi trayectoria como desarrollador full-stack senior. Especializado en Laravel, integraciones de marketplaces y arquitecturas escalables con más de 5 años de experiencia."
+>
+  <!-- Structured Data for About Page -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rubén Feito",
+        "description": "Desarrollador Full-Stack senior con más de 5 años de experiencia",
+        "knowsAbout": [
+          "Laravel",
+          "PHP",
+          "Backend Development",
+          "API Development",
+          "Database Design",
+          "System Architecture"
+        ]
+      }
+    }
+  </script>
+
+  <Container>
+    <PageHeader
+      title="Sobre Mí"
+      description="Un desarrollador con experiencia real en soluciones backend complejas"
+    />
+
+    <section class="mb-16">
+      <div>
+        <h2 class="text-2xl font-semibold text-foreground mb-6">
+          Mi Trayectoria
+        </h2>
+        <p class="text-muted leading-relaxed mb-4">
+          Soy un desarrollador Full-Stack con más de 5 años de experiencia,
+          enfocado principalmente en el Backend. Mi especialidad es Laravel,
+          donde he construido aplicaciones complejas y escalables.
+        </p>
+        <p class="text-muted leading-relaxed mb-4">
+          Trabajo de manera metódica, priorizando la arquitectura sólida, la
+          seguridad y la mantenibilidad del código. He colaborado en equipos
+          remotos y locales, siempre buscando soluciones eficientes a problemas
+          técnicos reales.
+        </p>
+        <p class="text-muted leading-relaxed">
+          Mi experiencia incluye integraciones con marketplaces como Amazon,
+          BackMarket, Mirakl y plataformas europeas, manejando volúmenes altos
+          de datos y automatizaciones críticas.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experiencia Laboral -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold text-foreground mb-8">
+        Experiencia Laboral
+      </h2>
+      <div class="relative w-full">
+        <!-- Línea vertical del timeline -->
+        <div
+          class="absolute left-0 top-8 bottom-0 w-0.5 bg-gradient-to-b from-teal-500 to-cyan-500"
+        >
+        </div>
+
+        <div class="space-y-10">
+          {
+            experiences.map((exp) => (
+              <TimelineItem
+                year={exp.year}
+                title={exp.title}
+                company={exp.company}
+                period={exp.period}
+                description={exp.description}
+                skills={exp.skills}
+                colorClass={exp.colorClass}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Educación y Certificaciones -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-semibold text-foreground mb-8">
+        Educación y Certificaciones
+      </h2>
+      <div class="space-y-6">
+        {
+          educationList.map((edu) => (
+            <EducationCard
+              title={edu.title}
+              organization={edu.organization}
+              period={edu.period}
+              description={edu.description}
+              badge={edu.badge}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Experiencia por Sectores -->
+    <section
+      class="bg-background dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 border border-border transition-colors duration-300"
+    >
+      <h2 class="text-2xl font-semibold text-foreground mb-6 text-center">
+        Experiencia por Sectores
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          sectors.map((sector) => (
+            <SectorCard
+              icon={sector.icon}
+              title={sector.title}
+              description={sector.description}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </Container>
+</Layout>

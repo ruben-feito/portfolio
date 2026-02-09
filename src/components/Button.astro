@@ -1,0 +1,44 @@
+---
+export interface Props {
+  variant?:
+    | "primary"
+    | "secondary"
+    | "hero"
+    | "hero-secondary"
+    | "light-on-dark";
+  href: string;
+  target?: "_blank" | "_self";
+  class?: string;
+}
+
+const {
+  variant = "primary",
+  href,
+  target = "_self",
+  class: className = "",
+} = Astro.props;
+
+const variantClasses = {
+  primary:
+    "relative bg-gradient-to-br from-teal-700 to-teal-500 text-white overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-teal-600 before:to-teal-400 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out px-6 py-3",
+  secondary:
+    "bg-transparent text-teal-700 dark:text-teal-400 border-2 border-teal-700 dark:border-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 px-6 py-3",
+  hero: "relative bg-gradient-to-br from-teal-700 to-teal-500 text-white px-10 py-4 text-lg overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-teal-600 before:to-teal-400 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300 before:ease-in-out",
+  "hero-secondary":
+    "bg-white/10 text-white px-10 py-4 text-lg border-2 border-white/30 backdrop-blur-md hover:bg-white/15 hover:border-white/40",
+  "light-on-dark":
+    "bg-white text-teal-700 px-8 py-4 font-bold hover:bg-slate-100 hover:text-teal-800",
+};
+---
+
+<a
+  href={href}
+  target={target}
+  class:list={[
+    "inline-block rounded-lg font-semibold text-center transition-[background,border,color] duration-300 ease-in-out cursor-pointer no-underline",
+    variantClasses[variant],
+    className,
+  ]}
+>
+  <span class="relative z-10"><slot /></span>
+</a>

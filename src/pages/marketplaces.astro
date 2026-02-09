@@ -1,0 +1,151 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import MarketplaceCard from "../components/MarketplaceCard.astro";
+import CtaSection from "../components/CtaSection.astro";
+import SectionCard from "../components/SectionCard.astro";
+import { marketplaces } from "../data/marketplaces";
+---
+
+<Layout
+  title="Integraciones Marketplace - Amazon, eBay, Zalando | Servicios Técnicos"
+  description="Especialista en integraciones de marketplaces europeos. Sincronización automática de catálogos, stock y precios. Servicios para e-commerce y plataformas B2B."
+>
+  <!-- Structured Data for Services -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Integraciones Marketplace",
+      "description": "Servicios especializados de integración con marketplaces europeos",
+      "provider": {
+        "@type": "Person",
+        "name": "Rubén Feito"
+      },
+      "serviceType": "Desarrollo de Software",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Spain"
+        },
+        {
+          "@type": "Country",
+          "name": "Germany"
+        },
+        {
+          "@type": "Country",
+          "name": "France"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Integración",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sincronización de Catálogo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestión de Inventario"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Precios Dinámicos"
+            }
+          }
+        ]
+      }
+    }
+  </script>
+
+  <Container>
+    <PageHeader
+      title="Experiencia en Marketplaces"
+      description="Especialización en integraciones complejas con plataformas de e-commerce"
+    />
+
+    <SectionCard class="mb-16">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl font-semibold text-foreground mb-6">
+            ¿Qué hago exactamente?
+          </h2>
+          <p class="text-muted leading-relaxed mb-4">
+            Una de mis especialidades es la integración con marketplaces, tanto
+            nacionales como europeos. He desarrollado sistemas que conectan
+            plataformas de e-commerce con catálogos internos, gestionando
+            sincronización en tiempo real de productos, stock y precios.
+          </p>
+          <p class="text-muted leading-relaxed">
+            Estos proyectos requieren no solo conocimientos técnicos profundos,
+            sino también comprensión de procesos de negocio complejos y manejo
+            de grandes volúmenes de datos.
+          </p>
+        </div>
+        <div
+          class="p-8 rounded-xl bg-secondary dark:bg-tertiary border border-border transition-colors duration-200"
+        >
+          <h3 class="text-lg font-semibold text-foreground mb-4">
+            Alcance de las Integraciones
+          </h3>
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Sincronización de catálogos</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Gestión automática de stock</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Precios dinámicos</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Procesamiento de pedidos</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Automatización de envíos</span>
+            </div>
+            <div class="flex items-center">
+              <div class="w-3 h-3 bg-accent rounded-full mr-3"></div>
+              <span class="text-muted">Facturación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SectionCard>
+
+    <!-- Marketplaces List -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-foreground mb-8 text-center">
+        Marketplaces con los que he trabajado
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {
+          marketplaces.map((marketplace) => (
+            <MarketplaceCard name={marketplace.name} />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <CtaSection
+      title="¿Necesitas integrar tu e-commerce con marketplaces?"
+      description="Puedo ayudarte a automatizar y optimizar tus ventas en múltiples plataformas"
+    />
+  </Container>
+</Layout>

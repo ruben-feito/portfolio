@@ -1,0 +1,19 @@
+{
+  "name": "Portfolio - Desarrollador Full-Stack Senior",
+  "short_name": "Portfolio Dev",
+  "description": "Portfolio de desarrollador Full-Stack Senior especializado en Laravel y marketplaces",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

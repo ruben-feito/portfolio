@@ -1,0 +1,41 @@
+---
+import SkillItem from "./SkillItem.astro";
+
+export interface Props {
+  icon: string;
+  title: string;
+  colorClass: string;
+  items: { title: string; description: string; borderColor: string }[];
+}
+
+const { icon, title, colorClass, items } = Astro.props;
+---
+
+<div
+  class="bg-background dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-border transition-colors duration-300"
+>
+  <div class="flex items-center mb-6">
+    <div
+      class:list={[
+        "w-12 h-12 rounded-lg flex items-center justify-center mr-4",
+        colorClass,
+      ]}
+    >
+      <span set:html={icon} />
+    </div>
+    <h2 class="text-2xl font-semibold text-foreground">
+      {title}
+    </h2>
+  </div>
+  <div class="space-y-4">
+    {
+      items.map((item) => (
+        <SkillItem
+          title={item.title}
+          description={item.description}
+          borderColor={item.borderColor}
+        />
+      ))
+    }
+  </div>
+</div>

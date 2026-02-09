@@ -1,0 +1,72 @@
+---
+export interface Props {
+  year: string;
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  skills?: { title: string; items: string[] }[];
+  colorClass?: string;
+}
+
+const {
+  year,
+  title,
+  company,
+  period,
+  description,
+  skills = [],
+  colorClass = "bg-teal-500",
+} = Astro.props;
+---
+
+<div class="relative flex items-start gap-6">
+  <div
+    class:list={[
+      "flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg",
+      colorClass,
+    ]}
+  >
+    {year}
+  </div>
+  <div
+    class="flex-1 bg-background dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-border transition-colors duration-300"
+  >
+    <div
+      class="flex flex-col md:flex-row md:items-start md:justify-between mb-4"
+    >
+      <div>
+        <h3 class="text-xl font-semibold text-foreground">
+          {title}
+        </h3>
+        <p class="text-teal-600 dark:text-teal-400">
+          {company}
+        </p>
+      </div>
+      <p class="text-muted text-sm">
+        {period}
+      </p>
+    </div>
+    <p class="text-muted mb-4 leading-relaxed">
+      {description}
+    </p>
+    {
+      skills.length > 0 && (
+        <div class="grid md:grid-cols-2 gap-4">
+          {skills.map((skillGroup) => (
+            <div>
+              <h4 class="font-semibold text-foreground mb-2">
+                {skillGroup.title}
+              </h4>
+              <ul class="text-sm text-muted space-y-1">
+                {skillGroup.items.map((item) => (
+                  <li>✦ {item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</div>

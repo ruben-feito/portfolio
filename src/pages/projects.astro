@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Button from "../components/Button.astro";
+import { projects } from "../data/projects";
+import CtaSection from "../components/CtaSection.astro";
+---
+
+<Layout
+  title="Proyectos y Casos de Éxito - Desarrollo Laravel & Integraciones"
+  description="Portfolio de proyectos técnicos: plataformas e-commerce, sistemas de automatización, integraciones marketplace. Casos reales con enfoque en arquitectura y rendimiento."
+>
+  <!-- Structured Data for Projects -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Proyectos y Casos de Éxito",
+      "description": "Portfolio de proyectos técnicos en desarrollo full-stack",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Proyectos Destacados",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "CreativeWork",
+            "name": "Integración Marketplace Europeo",
+            "description": "Sistema completo para sincronización de catálogo con múltiples marketplaces europeos"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Plataforma E-commerce",
+            "description": "Plataforma completa con Laravel, pagos integrados y panel administrativo"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Sistema de Automatización",
+            "description": "Automatización de procesamiento de pedidos desde marketplaces"
+          }
+        ]
+      }
+    }
+  </script>
+
+  <Container>
+    <PageHeader
+      title="Proyectos Destacados"
+      description="Algunos de los proyectos públicos en los que he trabajado. Por motivos de confidencialidad, no todos los proyectos están aquí listados."
+    />
+
+    <section class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 mb-16">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </section>
+
+    <!-- CTA Final -->
+    <CtaSection
+      title="¿Tienes un proyecto técnico desafiante?"
+      description="Especializado en Backend complejo, integraciones y arquitecturas escalables"
+    />
+  </Container>
+</Layout>

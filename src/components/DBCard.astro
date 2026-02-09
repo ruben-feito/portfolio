@@ -1,0 +1,27 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  icon: string;
+  colorClass: string;
+}
+
+const { name, description, icon, colorClass } = Astro.props;
+---
+
+<div
+  class="bg-background dark:bg-slate-700 p-6 rounded-xl shadow-md text-center border border-border transition-colors duration-300"
+>
+  <div
+    class:list={[
+      "w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3",
+      colorClass,
+    ]}
+  >
+    <span set:html={icon} />
+  </div>
+  <h3 class="font-semibold text-foreground mb-2">{name}</h3>
+  <p class="text-sm text-muted">
+    {description}
+  </p>
+</div>
