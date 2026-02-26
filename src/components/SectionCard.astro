@@ -1,0 +1,16 @@
+---
+type Props = {
+  class?: string;
+};
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    "bg-background border-border rounded-2xl border p-8 shadow-xl transition-colors duration-300 dark:bg-slate-800",
+    className,
+  ]}
+>
+  <slot />
+</div>

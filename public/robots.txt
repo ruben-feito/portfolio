@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ruben-feito.vercel.app/sitemap-index.xml
+Sitemap: https://ruben-feito.vercel.app/sitemap-0.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

@@ -1,0 +1,190 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ToolSection from "../components/ToolSection.astro";
+import SkillItem from "../components/SkillItem.astro";
+import DBCard from "../components/DBCard.astro";
+import CtaSection from "../components/CtaSection.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
+import {
+  backendSkills,
+  frontendSkills,
+  databases,
+  architecturePatterns,
+  toolSections,
+  collaborationTools,
+} from "../data/stack";
+
+const siteUrl = (Astro.site ?? new URL("https://ruben-feito.vercel.app")).href;
+const breadcrumbItems = [
+  { name: "Inicio", url: siteUrl },
+  { name: "Stack Tecnológico", url: new URL("/stack/", siteUrl).href },
+];
+---
+
+<Layout
+  title="Stack Tecnológico - Laravel, PHP, APIs, Docker | Desarrollador Senior"
+  description="Stack técnico completo: Laravel, PHP avanzado, APIs RESTful, bases de datos MySQL/PostgreSQL, Redis, Docker. Tecnologías que domino para soluciones robustas."
+>
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <Container>
+    <PageHeader
+      title="Stack Técnico"
+      description="Tecnologías y herramientas que domino para crear soluciones robustas, escalables y de alto rendimiento"
+    />
+
+    <!-- Sección Principal: Backend & Frontend -->
+    <section class="mb-16 grid gap-12 lg:grid-cols-2">
+      <ToolSection
+        icon='<svg class="w-6 h-6 text-teal-600 dark:text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>'
+        title="Backend"
+        colorClass="bg-teal-100 dark:bg-teal-900/30"
+        items={backendSkills}
+      />
+      <ToolSection
+        icon='<svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>'
+        title="Frontend"
+        colorClass="bg-blue-100 dark:bg-blue-900/30"
+        items={frontendSkills}
+      />
+    </section>
+
+    <!-- Bases de datos y Arquitectura -->
+    <section
+      class="bg-secondary border-border mb-16 rounded-2xl border p-8 transition-colors duration-300 md:p-12 dark:bg-slate-800"
+    >
+      <div class="mb-12 text-center">
+        <h2 class="text-foreground mb-4 text-2xl font-bold md:text-3xl">
+          Bases de Datos & Arquitectura
+        </h2>
+        <p class="text-muted mx-auto max-w-2xl">
+          Fundamentos para sistemas escalables, de alto rendimiento y mantenibles
+        </p>
+      </div>
+
+      <!-- Bases de Datos -->
+      <div class="mb-12">
+        <h3 class="text-foreground mb-6 flex items-center text-xl font-semibold">
+          <svg
+            class="mr-3 h-5 w-5 text-orange-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+            <path d="M3 5v14a9 3 0 0 0 18 0V5"></path>
+            <path d="M3 12a9 3 0 0 0 18 0"></path>
+          </svg>
+          Bases de Datos
+        </h3>
+        <div
+          class="mx-auto grid max-w-5xl justify-items-center gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {
+            databases.map((db) => (
+              <DBCard
+                name={db.name}
+                description={db.description}
+                icon={db.icon}
+                colorClass={db.colorClass}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Arquitectura y Patrones -->
+      <div>
+        <h3 class="text-foreground mb-6 flex items-center text-xl font-semibold">
+          <svg
+            class="mr-3 h-5 w-5 text-purple-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="5" height="5"></rect>
+            <rect x="9" y="9" width="5" height="5"></rect>
+            <rect x="15" y="3" width="5" height="5"></rect>
+            <path d="M8 8l8 8M8 10l3 3"></path>
+          </svg>
+          Arquitectura y Patrones
+        </h3>
+        <div class="space-y-4">
+          {
+            architecturePatterns.map((pattern) => (
+              <div class:list={["border-l-4 pl-4", pattern.borderColor]}>
+                <h4 class="text-foreground font-semibold">{pattern.title}</h4>
+                <p class="text-muted text-sm">{pattern.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Herramientas y Desarrollo -->
+    <section class="mb-16">
+      <h2 class="text-foreground mb-8 text-2xl font-bold md:text-3xl">Herramientas & Desarrollo</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {
+          toolSections.map((section) => (
+            <ToolSection
+              icon={section.icon}
+              title={section.title}
+              colorClass={section.colorClass}
+              items={section.items}
+            />
+          ))
+        }
+
+        <!-- Colaboración & Diseño -->
+        <div class="flex justify-center md:col-span-2">
+          <div
+            class="bg-background border-border rounded-2xl border p-4 shadow-xl transition-colors duration-300 md:p-8 dark:bg-slate-800"
+          >
+            <div class="mb-6 flex items-center">
+              <div
+                class="mr-4 flex h-12 w-12 items-center justify-center rounded-lg bg-teal-100 dark:bg-teal-900/30"
+              >
+                <svg
+                  class="h-6 w-6 text-teal-600 dark:text-teal-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 class="text-foreground text-xl font-semibold">Colaboración & Diseño</h3>
+            </div>
+            <div class="space-y-3">
+              {
+                collaborationTools.map((tool) => (
+                  <SkillItem
+                    title={tool.title}
+                    description={tool.description}
+                    borderColor={tool.borderColor}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <CtaSection
+      title="¿Buscas un desarrollador Full-Stack experimentado?"
+      description="Especializado en Laravel y integraciones de marketplaces"
+      buttonText="Hablemos de tu proyecto"
+      buttonHref="https://www.linkedin.com/in/rubenfeitof/"
+    />
+  </Container>
+</Layout>

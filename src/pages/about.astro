@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import EducationCard from "../components/EducationCard.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
+import { getCollection } from "astro:content";
+
+const experienceEntries = await getCollection("experiences");
+const experiences = experienceEntries.map((e) => e.data);
+const educationEntries = await getCollection("education");
+const educationList = educationEntries.map((e) => e.data);
+
+const siteUrl = (Astro.site ?? new URL("https://ruben-feito.vercel.app")).href;
+const breadcrumbItems = [
+  { name: "Inicio", url: siteUrl },
+  { name: "Sobre Mí", url: new URL("/about/", siteUrl).href },
+];
+---
+
+<Layout
+  title="Sobre Mí - Desarrollador Full-Stack | Especialista en Integraciones eCommerce | Experiencia Laravel"
+  description="Desarrollador Full-Stack senior especializado en Backend e integraciones eCommerce. Experto en Laravel, marketplaces, APIs y solucionador de problemas de negocio con sistemas complejos."
+>
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <!-- Structured Data for About Page -->
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rubén Feito",
+        "description": "Desarrollador Full-Stack senior con más de 5 años de experiencia, especializado en integraciones eCommerce",
+        "knowsAbout": [
+          "Full-Stack Development",
+          "Integraciones eCommerce",
+          "Marketplaces Integration",
+          "Laravel",
+          "PHP",
+          "Backend Development",
+          "API Development",
+          "Database Design",
+          "System Architecture"
+        ]
+      }
+    }
+  </script>
+
+  <Container>
+    <PageHeader
+      title="Sobre Mí"
+      description="Un desarrollador con experiencia real en soluciones backend complejas"
+    />
+
+    <section class="mb-16">
+      <div>
+        <h2 class="text-foreground mb-6 text-2xl font-bold md:text-3xl">Mi Trayectoria</h2>
+        <p class="text-muted mb-4 leading-relaxed">
+          Soy un <strong>desarrollador Full-Stack con más de 5 años de experiencia</strong>,
+          especializado en Backend e <strong>integraciones eCommerce</strong>. Mi enfoque principal
+          es conectar sistemas complejos y resolver problemas de negocio a través de la tecnología,
+          especialmente en el ecosistema de marketplaces y plataformas de comercio electrónico.
+        </p>
+        <p class="text-muted mb-4 leading-relaxed">
+          Como <strong>especialista en integraciones</strong>, trabajo de manera metódica con
+          Laravel, priorizando arquitecturas sólidas, la seguridad y la mantenibilidad del código.
+          He colaborado en equipos remotos y locales, siempre actuando como
+          <strong>solucionador de problemas de negocio</strong>, traduciendo necesidades complejas
+          en soluciones técnicas eficientes.
+        </p>
+        <p class="text-muted leading-relaxed">
+          Mi experiencia incluye integraciones profundas con marketplaces como Amazon, BackMarket,
+          Mirakl y plataformas europeas, manejando volúmenes altos de datos, sincronizaciones en
+          tiempo real y automatizaciones críticas para el negocio. He desarrollado soluciones
+          completas desde el frontend hasta el backend, con especial dominio en Laravel y
+          arquitecturas escalables.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experiencia Laboral -->
+    <section class="mb-16">
+      <h2 class="text-foreground mb-8 text-2xl font-bold md:text-3xl">Experiencia Laboral</h2>
+      <div class="relative w-full">
+        <!-- Línea vertical del timeline -->
+        <div
+          class="absolute top-5 bottom-0 left-5 w-0.5 -translate-x-1/2 bg-gradient-to-b from-teal-500 to-cyan-500 md:left-8 dark:from-teal-700 dark:to-cyan-700"
+        >
+        </div>
+
+        <div class="space-y-10">
+          {
+            experiences.map((exp) => (
+              <TimelineItem
+                year={exp.year}
+                title={exp.title}
+                company={exp.company}
+                period={exp.period}
+                description={exp.description}
+                skills={exp.skills}
+                colorClass={exp.colorClass}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Educación y Certificaciones -->
+    <section class="mb-8">
+      <h2 class="text-foreground mb-8 text-2xl font-bold md:text-3xl">
+        Educación y Certificaciones
+      </h2>
+      <div class="space-y-6">
+        {
+          educationList.map((edu) => (
+            <EducationCard
+              title={edu.title}
+              organization={edu.organization}
+              period={edu.period}
+              description={edu.description}
+              badge={edu.badge}
+            />
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Experiencia por Sectores -->
+    <!-- <section
+      class="bg-background dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12 border border-border transition-colors duration-300"
+    >
+      <h2 class="text-2xl font-semibold text-foreground mb-6 text-center">
+        Experiencia por Sectores
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {
+          sectors.map((sector) => (
+            <SectorCard
+              icon={sector.icon}
+              title={sector.title}
+              description={sector.description}
+            />
+          ))
+        }
+      </div>
+    </section> -->
+  </Container>
+</Layout>

@@ -1,0 +1,35 @@
+---
+import Button from "./Button.astro";
+
+type Props = {
+  title: string;
+  description: string;
+  buttonText?: string;
+  buttonHref?: string;
+};
+
+const {
+  title,
+  description,
+  buttonText = "Hablemos de tu proyecto",
+  buttonHref = "https://www.linkedin.com/in/rubenfeitof/",
+} = Astro.props;
+---
+
+<section
+  class="rounded-2xl bg-gradient-to-r from-teal-500 to-teal-700 py-12 text-white dark:from-teal-800 dark:to-slate-800"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center">
+      <h2 class="mb-4 text-2xl font-bold md:text-3xl lg:text-4xl">
+        {title}
+      </h2>
+      <p class="mb-8 text-base text-teal-100 md:text-xl">
+        {description}
+      </p>
+      <Button variant="light-on-dark" href={buttonHref} target="_blank">
+        {buttonText}
+      </Button>
+    </div>
+  </div>
+</section>

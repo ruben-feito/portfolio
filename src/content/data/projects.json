@@ -1,0 +1,162 @@
+[
+  {
+    "id": "sitelicon-ecommerce-services",
+    "title": "SITELICON WEB PROJECTS, SL",
+    "description": "ERP propio de Sitelicon. El sistema integra gestión de productos, pedidos con multitud de marketplaces. Permite a Sitelicon ofrecer servicios de gestión integral a sus clientes de e-commerce, optimizando operaciones y mejorando la eficiencia en la gestión de sus negocios online.",
+    "gradient": "from-orange-500 to-orange-100",
+    "image": "/assets/sitelicon.webp",
+    "url": "https://middleware.sitelicon.org/",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "API REST", "color": "cyan" },
+      { "label": "Next.js", "color": "blue" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "Marketplaces", "color": "pink" },
+      { "label": "Tailwind", "color": "cyan" }
+    ]
+  },
+  {
+    "id": "muay-tax-advisors",
+    "title": "Muay Tax Advisors, SL.",
+    "description": "API REST para consumo interno de Muay Tax para ofrecer facturación a terceros. Conectada a Amazon, Miravia/AliExpress, Shopify, Temu... y otros marketplaces. Intrastat, pedidos y facturación.",
+    "gradient": "from-green-500 to-green-100",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "API REST", "color": "cyan" },
+      { "label": "Marketplaces", "color": "pink" }
+    ]
+  },
+  {
+    "id": "cfon-telecomunicaciones",
+    "title": "CFON TELECOMUNICACIONES S.L.",
+    "description": "Plataforma e-commerce de telefonía móvil reacondicionada para CosladaFon con integraciones de múltiples marketplaces europeos (Amazon, Fnac, Carrefour, etc.) y sistemas de pago. Integración con Odoo.",
+    "gradient": "from-blue-500 to-indigo-600",
+    "image": "/assets/cosladafon.webp",
+    "url": "https://www.cosladafon.com/",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "Marketplaces", "color": "pink" },
+      { "label": "Odoo", "color": "green" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "AWS", "color": "orange" }
+    ]
+  },
+  {
+    "id": "alvaro-catalan-de-ocon",
+    "title": "Álvaro Catalán de Ocón",
+    "description": "Portafolio personal de un Diseñador Industrial premiado con el Premio Nacional de Diseño 2023. Web que muestra proyectos realizados y información biográfica.",
+    "gradient": "from-teal-500 to-cyan-600",
+    "image": "/assets/catalandeocon.webp",
+    "url": "https://www.catalandeocon.com/",
+    "tags": [
+      { "label": "CodeIgniter", "color": "orange" },
+      { "label": "cPanel", "color": "yellow" }
+    ]
+  },
+  {
+    "id": "boris-pena-architects",
+    "title": "Boris Pena Architects",
+    "description": "Web corporativa de un estudio de arquitectura con proyectos a nivel mundial. Incluye panel de administración para gestión de contenidos y proyectos.",
+    "gradient": "from-green-500 to-teal-600",
+    "image": "/assets/bpa.webp",
+    "url": "https://www.borispena.com/",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "Next.js", "color": "blue" },
+      { "label": "Tailwind", "color": "cyan" }
+    ]
+  },
+  {
+    "id": "world-bags",
+    "title": "WORLD BAGS, S.L.",
+    "description": "E-commerce para PACOMARTINEZ de bolsos, maletas y complementos con integraciones en Amazon y El Corte Inglés. Backend robusto con gestión de múltiples canales de venta.",
+    "gradient": "from-purple-500 to-pink-600",
+    "image": "/assets/pacomartinez.webp",
+    "url": "https://www.pacomartinez.com/",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "API REST", "color": "cyan" },
+      { "label": "Next.js", "color": "blue" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "Marketplaces", "color": "pink" },
+      { "label": "Tailwind", "color": "cyan" },
+      { "label": "AWS", "color": "orange" }
+    ]
+  },
+  {
+    "id": "servilinfor",
+    "title": "SERVILINFOR SL",
+    "description": "Aplicación web completa para gestión de academia Paraninfo: alumnos, cursos, profesores, clases y pagos.",
+    "gradient": "from-orange-500 to-red-600",
+    "image": "/assets/paraninfo.webp",
+    "url": "https://student.paraninfo.com/",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "AWS", "color": "orange" }
+    ]
+  },
+  {
+    "id": "sapi",
+    "title": "SAPI",
+    "description": "Administrador web para gestión de centros de día. Sistema integral desde análisis de requisitos, diseño de BBDD hasta desarrollo como MVP.",
+    "gradient": "from-cyan-500 to-blue-600",
+    "image": "/assets/sapi.webp",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "Admin Panel", "color": "purple" }
+    ]
+  },
+  {
+    "id": "yoga-con-gloria",
+    "title": "Yoga con Gloria",
+    "description": "Plataforma de clases online de yoga pregrabadas. Web informativa y aplicación para visualizar clases. Integración de pagos con PayPal y Stripe.",
+    "gradient": "from-pink-500 to-rose-600",
+    "image": "/assets/yogacongloria.webp",
+    "url": "https://www.yogacongloria.com",
+    "tags": [
+      { "label": "Laravel", "color": "red" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "cPanel", "color": "yellow" }
+    ]
+  },
+  {
+    "id": "acdo",
+    "title": "ACdO",
+    "description": "Web de venta de artesanía sostenible con compromiso social. Sistema de pedidos conectado con Zoho CRM. Gestión manual de pagos para mayor acercamiento con clientes.",
+    "gradient": "from-indigo-500 to-purple-600",
+    "image": "/assets/acdo.webp",
+    "url": "https://www.alvarocatalandeocon.com/acdo",
+    "tags": [
+      { "label": "CodeIgniter", "color": "orange" },
+      { "label": "Zoho ", "color": "violet" },
+      { "label": "cPanel", "color": "yellow" }
+    ]
+  },
+  {
+    "id": "the-worldfolio",
+    "title": "The Worldfolio",
+    "description": "Portal de noticias de economía y negocios para audiencia asiática. Migración de PHP 5.3 a 8 con rediseño completo manteniendo estructura original.",
+    "gradient": "from-emerald-500 to-green-600",
+    "image": "/assets/theworldfolio.webp",
+    "url": "https://www.theworldfolio.com",
+    "tags": [
+      { "label": "PHP Native", "color": "indigo" },
+      { "label": "AWS", "color": "orange" }
+    ]
+  },
+  {
+    "id": "pet-lamp",
+    "title": "PET Lamp",
+    "description": "E-commerce de lámparas artesanales de botellas recicladas. Configurador avanzado con control de stock único y gestión de electrificación por país.",
+    "gradient": "from-yellow-500 to-orange-600",
+    "image": "/assets/petlamp.webp",
+    "url": "https://www.petlamp.org",
+    "tags": [
+      { "label": "CodeIgniter", "color": "orange" },
+      { "label": "Zoho ", "color": "violet" },
+      { "label": "Admin Panel", "color": "purple" },
+      { "label": "cPanel", "color": "yellow" }
+    ]
+  }
+]

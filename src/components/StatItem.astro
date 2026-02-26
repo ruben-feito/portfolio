@@ -1,0 +1,13 @@
+---
+type Props = {
+  value: string;
+  label: string;
+};
+
+const { value, label } = Astro.props;
+---
+
+<div class="text-center">
+  <div class="mb-2 text-4xl font-bold md:text-5xl">{value}</div>
+  <p class="text-teal-100">{label}</p>
+</div>

@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/Container.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import BreadcrumbSchema from "../components/BreadcrumbSchema.astro";
+import { getCollection } from "astro:content";
+import CtaSection from "../components/CtaSection.astro";
+
+const projectEntries = await getCollection("projects");
+const projects = projectEntries.map((e) => e.data);
+
+const siteUrl = (Astro.site ?? new URL("https://ruben-feito.vercel.app")).href;
+const breadcrumbItems = [
+  { name: "Inicio", url: siteUrl },
+  { name: "Proyectos", url: new URL("/projects/", siteUrl).href },
+];
+---
+
+<Layout
+  title="Proyectos y Casos de Éxito - Desarrollo Laravel & Integraciones"
+  description="Portfolio de proyectos técnicos: plataformas e-commerce, sistemas de automatización, integraciones marketplace. Casos reales con enfoque en arquitectura y rendimiento."
+>
+  <!-- Breadcrumb Schema -->
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <!-- Structured Data for Projects -->
+  <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Proyectos y Casos de Éxito",
+      "description": "Portfolio de proyectos técnicos en desarrollo full-stack",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Proyectos Destacados",
+        "numberOfItems": 11,
+        "itemListElement": [
+          {
+            "@type": "CreativeWork",
+            "position": 0,
+            "name": "ERP Sitelicon Ecommerce Services",
+            "description": "ERP propio de Sitelicon. El sistema integra gestión de productos, pedidos con multitud de marketplaces. Permite a Sitelicon ofrecer servicios de gestión integral a sus clientes de e-commerce, optimizando operaciones y mejorando la eficiencia en la gestión de sus negocios online."
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 2,
+            "name": "Muay Tax Advisors",
+            "description": "API REST de facturación conectada a Amazon, Miravia/AliExpress, Shopify, Temu y otros marketplaces"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 3,
+            "name": "CFON Telecomunicaciones - CosladaFon",
+            "description": "Plataforma e-commerce de telefonía reacondicionada con integraciones de múltiples marketplaces europeos y Odoo"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 4,
+            "name": "Álvaro Catalán de Ocón",
+            "description": "Portfolio de diseñador industrial premiado con el Premio Nacional de Diseño 2023"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 5,
+            "name": "Boris Pena Architects",
+            "description": "Web corporativa de estudio de arquitectura con panel de administración de contenidos y proyectos"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 6,
+            "name": "WORLD BAGS - Paco Martínez",
+            "description": "E-commerce de bolsos y complementos con integraciones en Amazon y El Corte Inglés"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 7,
+            "name": "SERVILINFOR - Paraninfo",
+            "description": "Aplicación web de gestión de academia: alumnos, cursos, profesores, clases y pagos"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 8,
+            "name": "SAPI",
+            "description": "Administrador web para gestión de centros de día, desarrollado como MVP"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 9,
+            "name": "Yoga con Gloria",
+            "description": "Plataforma de clases online de yoga con membresías e integración de pagos PayPal y Stripe"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 10,
+            "name": "ACdO",
+            "description": "Web de venta de artesanía sostenible con integración Zoho CRM"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 11,
+            "name": "The Worldfolio",
+            "description": "Portal de noticias de economía y negocios con migración de PHP 5.3 a PHP 8"
+          },
+          {
+            "@type": "CreativeWork",
+            "position": 12,
+            "name": "PET Lamp",
+            "description": "E-commerce de lámparas artesanales con configurador avanzado y control de stock único"
+          }
+        ]
+      }
+    }
+  </script>
+
+  <Container>
+    <PageHeader
+      title="Proyectos Destacados"
+      description="Algunos de los proyectos públicos en los que he trabajado. Por motivos de confidencialidad, no todos los proyectos están aquí listados."
+    />
+
+    <section class="mb-16 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </section>
+
+    <!-- CTA Final -->
+    <CtaSection
+      title="¿Tienes un proyecto técnico desafiante?"
+      description="Especializado en Backend complejo, integraciones y arquitecturas escalables"
+    />
+  </Container>
+</Layout>

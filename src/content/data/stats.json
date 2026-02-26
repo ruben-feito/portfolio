@@ -1,0 +1,5 @@
+[
+  { "id": "years", "value": "5+", "label": "Años de Experiencia" },
+  { "id": "integrations", "value": "25+", "label": "Integraciones Marketplace" },
+  { "id": "certification", "value": "1", "label": "Certificación AWS" }
+]

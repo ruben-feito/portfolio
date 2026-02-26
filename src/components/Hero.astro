@@ -1,0 +1,141 @@
+---
+import Button from "./Button.astro";
+
+type Props = {
+  name: string;
+  description: string;
+  ctaPrimary: { text: string; href: string };
+  ctaSecondary: { text: string; href: string };
+};
+
+const { name, description, ctaPrimary, ctaSecondary } = Astro.props;
+---
+
+<section
+  aria-label="Presentación de Rubén Feito"
+  class="relative min-h-[600px] overflow-hidden bg-gradient-to-br from-teal-500 to-teal-700 text-white dark:from-slate-900 dark:via-teal-900 dark:to-slate-900"
+>
+  <div id="particles-container" class="pointer-events-none absolute inset-0"></div>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+    <div class="text-center">
+      <h1
+        class="mb-6 bg-gradient-to-r from-white to-teal-100 bg-clip-text text-5xl font-bold text-transparent md:text-7xl"
+      >
+        {name}
+      </h1>
+      <p
+        class="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-white/90 md:text-2xl dark:text-gray-300"
+      >
+        {description}
+      </p>
+      <div class="flex flex-col justify-center gap-4 sm:flex-row">
+        <Button variant="hero" href={ctaPrimary.href}>
+          {ctaPrimary.text}
+        </Button>
+        <Button variant="hero-secondary" href={ctaSecondary.href} target="_blank">
+          {ctaSecondary.text}
+        </Button>
+      </div>
+    </div>
+  </div>
+  <!-- Decorative elements -->
+  <div class="absolute top-20 left-10 h-20 w-20 rounded-full bg-teal-500/20 blur-xl"></div>
+  <div class="absolute right-10 bottom-20 h-32 w-32 rounded-full bg-cyan-500/20 blur-xl"></div>
+</section>
+
+<style>
+  #particles-container {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  #particles-container canvas {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+</style>
+
+<script>
+  import { tsParticles } from "@tsparticles/engine";
+  import { loadSlim } from "@tsparticles/slim";
+
+  const initParticles = async () => {
+    const container = document.getElementById("particles-container");
+    if (!container) return;
+
+    // Limpiar todas las instancias previas
+    try {
+      const instances = tsParticles.dom();
+      for (const instance of instances) {
+        instance.destroy();
+      }
+      tsParticles.dom().length = 0;
+    } catch (_) {}
+
+    await loadSlim(tsParticles);
+
+    await tsParticles.load({
+      id: "particles-container",
+      options: {
+        background: {
+          opacity: 0,
+        },
+        fullScreen: {
+          enable: false,
+        },
+        fpsLimit: 60,
+        particles: {
+          color: {
+            value: ["#14b8a6", "#5eead4", "#2dd4bf"],
+          },
+          links: {
+            color: "#14b8a6",
+            distance: 160,
+            enable: true,
+            opacity: 0.3,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: true,
+            straight: false,
+            outModes: {
+              default: "bounce",
+            },
+          },
+          number: {
+            density: {
+              enable: true,
+            },
+            value: 85,
+          },
+          opacity: {
+            value: { min: 0.3, max: 0.6 },
+            animation: {
+              enable: true,
+              speed: 0.8,
+            },
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            value: { min: 1.5, max: 3 },
+          },
+        },
+        detectRetina: true,
+      },
+    });
+  };
+
+  // astro:page-load dispara tanto en carga inicial como en navegación SPA
+  document.addEventListener("astro:page-load", initParticles);
+</script>

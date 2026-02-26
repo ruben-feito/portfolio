@@ -1,0 +1,21 @@
+[
+  {
+    "id": "aws-certified-cloud-practitioner",
+    "title": "AWS Certified Cloud Practitioner",
+    "organization": "Amazon Web Services",
+    "period": "2023",
+    "description": "Certificación que valida comprensión fundamental de la plataforma AWS, servicios en la nube y buenas prácticas. Demuestra conocimientos en computación, almacenamiento, redes y seguridad.",
+    "badge": {
+      "image": "https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+      "alt": "AWS Certified Cloud Practitioner Badge",
+      "link": "https://www.credly.com/badges/d8eaeca9-c4b8-46d4-bb20-84753a554412"
+    }
+  },
+  {
+    "id": "daw",
+    "title": "Técnico Superior en Desarrollo de Aplicaciones Web (DAW)",
+    "organization": "I.E.S Leonardo Da Vinci",
+    "period": "2018 - 2020",
+    "description": "Formación especializada en desarrollo de aplicaciones web, incluyendo tecnologías frontend y backend, bases de datos, y buenas prácticas en programación. Desarrollo de proyectos reales con HTML, CSS, JavaScript, PHP, MySQL."
+  }
+]

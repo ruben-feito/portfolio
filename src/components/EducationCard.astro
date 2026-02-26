@@ -1,0 +1,46 @@
+---
+import Button from "./Button.astro";
+
+type Props = {
+  title: string;
+  organization: string;
+  period: string;
+  description: string;
+  badge?: {
+    image: string;
+    alt: string;
+    link: string;
+  };
+};
+
+const { title, organization, period, description, badge } = Astro.props;
+---
+
+<div
+  class="bg-background border-border rounded-2xl border p-4 shadow-xl transition-colors duration-300 md:p-8 dark:bg-slate-800"
+>
+  <div class="mb-4 flex flex-col md:flex-row md:items-start md:justify-between">
+    <div class="flex-1">
+      <h3 class="text-foreground text-xl font-semibold">
+        {title}
+      </h3>
+      <p class="text-teal-600 dark:text-teal-400">{organization}</p>
+    </div>
+    <p class="text-muted text-sm">{period}</p>
+  </div>
+  <p class="text-muted mb-6 leading-relaxed">
+    {description}
+  </p>
+  {
+    badge && (
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex items-center justify-center rounded-lg bg-transparent p-4">
+          <img src={badge.image} alt={badge.alt} class="h-32 w-32 rounded-lg" />
+        </div>
+        <Button variant="secondary" href={badge.link} target="_blank">
+          Ver Credencial
+        </Button>
+      </div>
+    )
+  }
+</div>
