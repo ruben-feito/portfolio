@@ -1,4 +1,5 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { file } from "astro/loaders";
 
 // ─── Projects ────────────────────────────────────────────────────────────────
@@ -9,7 +10,7 @@ const projects = defineCollection({
     description: z.string(),
     gradient: z.string(),
     image: z.string().optional(),
-    url: z.string().url().optional(),
+    url: z.url().optional(),
     tags: z.array(
       z.object({
         label: z.string(),
@@ -39,7 +40,7 @@ const education = defineCollection({
       .object({
         image: z.string(),
         alt: z.string(),
-        link: z.string().url(),
+        link: z.url(),
       })
       .optional(),
   }),

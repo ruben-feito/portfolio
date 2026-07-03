@@ -63,24 +63,20 @@ const { name, description, ctaPrimary, ctaSecondary } = Astro.props;
 
 <script>
   import { tsParticles } from "@tsparticles/engine";
+  import type { Container } from "@tsparticles/engine";
   import { loadSlim } from "@tsparticles/slim";
+
+  let particlesInstance: Container | undefined;
 
   const initParticles = async () => {
     const container = document.getElementById("particles-container");
     if (!container) return;
 
-    // Limpiar todas las instancias previas
-    try {
-      const instances = tsParticles.dom();
-      for (const instance of instances) {
-        instance.destroy();
-      }
-      tsParticles.dom().length = 0;
-    } catch (_) {}
+    particlesInstance?.destroy();
 
     await loadSlim(tsParticles);
 
-    await tsParticles.load({
+    particlesInstance = await tsParticles.load({
       id: "particles-container",
       options: {
         background: {
